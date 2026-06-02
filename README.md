@@ -1,6 +1,6 @@
 # did-cli
 
-A command-line interface for any standards-compliant DID Resolver and DID Registrar service, e.g. [Godiddy](https://godiddy.com/).
+A command-line interface for any standards-compliant DID Resolver and DID Registrar service, e.g. [Godiddy.com](https://godiddy.com/).
 
 ## Run using Docker
 
