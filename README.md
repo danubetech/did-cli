@@ -28,7 +28,7 @@ curl -LO "https://github.com/danubetech/did-cli/releases/download/${VERSION}/did
 sudo dpkg -i did-cli_${VERSION}_amd64.deb
 ```
 
-Verify if installation was successful:
+## Verify installation
 
 ```bash
 did-cli --version
@@ -49,12 +49,12 @@ To use local Universal Resolver or Universal Registrar:
 
 ```shell
 # Set API endpoint to local Universal Resolver
-did-cli config endpoint http://localhost:8080/1.0/
+did-cli config endpoint -r http://localhost:8080/1.0/
 ```
 
 ```shell
 # Set API endpoint to local Universal Registrar
-did-cli config endpoint http://localhost:9080/1.0/
+did-cli config endpoint -r http://localhost:9080/1.0/
 ```
 
 ## Simple examples
@@ -136,6 +136,29 @@ did-cli update -d did:example:123 --diddocop 'addToDidDocument' -rvmi '#key-3' -
 ```
 
 Also see https://docs.godiddy.com/apis/universal-registrar/additional-key-generation.
+
+## More configuration options
+
+```shell
+# Set formatting of requests and responses
+did-cli config formatting interpreted    # Human-readable, interpreted
+did-cli config formatting pretty         # Pretty JSON
+did-cli config formatting flat           # Flat JSON
+```
+
+```shell
+# Set printing of HTTP headers
+did-cli config headers on     # Headers on
+did-cli config headers off    # Headers off
+```
+
+```shell
+# Set log level
+did-cli config loglevel standard    # Loglevel standard
+did-cli config loglevel warn        # Loglevel warn
+did-cli config loglevel info        # Loglevel info
+did-cli config loglevel debug       # Loglevel debug
+```
 
 ## More examples
 
