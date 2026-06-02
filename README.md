@@ -57,7 +57,7 @@ did-cli config endpoint http://localhost:8080/1.0/
 did-cli config endpoint http://localhost:9080/1.0/
 ```
 
-### Simple examples
+## Simple examples
 
 ```shell
 # Simple resolution
@@ -76,7 +76,7 @@ did-cli create -c -m key -o keyType=P-256
 did-cli create -c -i -m key -o keyType=P-256
 ```
 
-### Interactive
+## Interactive
 
 If the `-i` option is given in various commands, responses from the API (especially "action" states in client-managed secret mode) have
 to be processed "manually" using additional commands.
@@ -89,7 +89,7 @@ did-cli state process
 did-cli continue -i
 ```
 
-### Key Management (KMS)
+## Key Management (KMS)
 
 By default, internal secret mode is used, e.g. the Godiddy Wallet Service.
 
@@ -121,7 +121,7 @@ did-cli kms delete
 
 Also see https://docs.godiddy.com/apis/universal-registrar/registrar-configuration.
 
-### Additional key generation
+## Additional key generation
 
 The `-rvmi`, `-rvmt`, `-rvmp` options can be used to add additional keys to a DID document, i.e. keys that are not required by the DID method itself.
 
