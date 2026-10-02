@@ -95,6 +95,12 @@ public class CreateCommand extends DIDAbstractCommand implements Callable<Intege
     List<String> requestVerificationMethodPublicKeyJwkCrv;
 
     @Option(
+            names = {"-rvmja", "--requestVerificationMethodPublicKeyJwkAlg"},
+            description = "A 'publicKeyJwk.alg' property for a verification method to generate."
+    )
+    List<String> requestVerificationMethodPublicKeyJwkAlg;
+
+    @Option(
             names = {"-s", "--secret"},
             description = "This input field contains an object with DID controller keys and other secrets needed for performing the DID operation."
     )
@@ -131,6 +137,7 @@ public class CreateCommand extends DIDAbstractCommand implements Callable<Intege
                 String requestVerificationMethodPublicKeyJwk = (this.requestVerificationMethodPublicKeyJwk == null || this.requestVerificationMethodPublicKeyJwk.size() < (i+1)) ? null : this.requestVerificationMethodPublicKeyJwk.get(i);
                 String requestVerificationMethodPublicKeyJwkKty = (this.requestVerificationMethodPublicKeyJwkKty == null || this.requestVerificationMethodPublicKeyJwkKty.size() < (i+1)) ? null : this.requestVerificationMethodPublicKeyJwkKty.get(i);
                 String requestVerificationMethodPublicKeyJwkCrv = (this.requestVerificationMethodPublicKeyJwkCrv == null || this.requestVerificationMethodPublicKeyJwkCrv.size() < (i+1)) ? null : this.requestVerificationMethodPublicKeyJwkCrv.get(i);
+                String requestVerificationMethodPublicKeyJwkAlg = (this.requestVerificationMethodPublicKeyJwkAlg == null || this.requestVerificationMethodPublicKeyJwkAlg.size() < (i+1)) ? null : this.requestVerificationMethodPublicKeyJwkAlg.get(i);
                 Map<String, Object> requestVerificationMethod = new HashMap<>();
                 requestVerificationMethod.put("id", requestVerificationMethodId);
                 if (requestVerificationMethodType != null) requestVerificationMethod.put("type", requestVerificationMethodType);
@@ -143,6 +150,10 @@ public class CreateCommand extends DIDAbstractCommand implements Callable<Intege
                 if (requestVerificationMethodPublicKeyJwkCrv != null) {
                     Map<String, Object> publicKeyJwk = (Map<String, Object>) requestVerificationMethod.computeIfAbsent("publicKeyJwk", x -> new HashMap<String, Object>());
                     publicKeyJwk.put("crv", requestVerificationMethodPublicKeyJwkCrv);
+                }
+                if (requestVerificationMethodPublicKeyJwkAlg != null) {
+                    Map<String, Object> publicKeyJwk = (Map<String, Object>) requestVerificationMethod.computeIfAbsent("publicKeyJwk", x -> new HashMap<String, Object>());
+                    publicKeyJwk.put("alg", requestVerificationMethodPublicKeyJwkAlg);
                 }
                 requestVerificationMethods.add(requestVerificationMethod);
             }
