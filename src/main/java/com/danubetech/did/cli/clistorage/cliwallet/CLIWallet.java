@@ -8,12 +8,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.SequencedCollection;
 
 public class CLIWallet {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static LinkedList<LocalClientKey> getWallet() {
+    public static SequencedCollection<LocalClientKey> getWallet() {
         try {
             LinkedList<Map> walletMap = CLIStorage.get("wallet") == null ? null : objectMapper.readValue(CLIStorage.get("wallet"), LinkedList.class);
             if (walletMap == null) return null;
@@ -23,7 +24,7 @@ public class CLIWallet {
         }
     }
 
-    public static void setWallet(List<LocalClientKey> wallet) {
+    public static void setWallet(SequencedCollection<LocalClientKey> wallet) {
         if (wallet == null) {
             CLIStorage.remove("wallet");
         } else {
