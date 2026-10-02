@@ -90,7 +90,7 @@
 		<key-formats-java.version>1.36.0</key-formats-java.version>
 		<did-common-java.version>1.28.0</did-common-java.version>
 		<danubetech-kms-java.version>0.29.0</danubetech-kms-java.version>
-		<danubetech-resolver-common-java.version>0.11.0</danubetech-resolver-common-java.version>
+		<danubetech-resolver-common-java.version>0.12.0</danubetech-resolver-common-java.version>
 		<danubetech-registrar-common-java.version>0.37.0</danubetech-registrar-common-java.version>
 		<com.github.mattrglobal-bbs.signatures.version>2.0</com.github.mattrglobal-bbs.signatures.version>
 		<fr.acinq.bitcoin-bitcoin-kmp-jvm.version>0.32.0</fr.acinq.bitcoin-bitcoin-kmp-jvm.version>
