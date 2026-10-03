@@ -59,9 +59,11 @@
 +    if (getActualInstance() instanceof Map) {
          if (getActualInstance() != null) {
            for (String _key : ((Map<String, Object>)getActualInstance()).keySet()) {
-             joiner.add(String.format(java.util.Locale.ROOT, "%sone_of_0%s%s=%s", prefix, suffix,
-                 "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, _key, containerSuffix),
+-            joiner.add(String.format(java.util.Locale.ROOT, "%sone_of_0%s%s=%s", prefix, suffix,
+-                "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, _key, containerSuffix),
 -                getActualInstance().get(_key), ApiClient.urlEncode(String.valueOf(((Map<String, Object>)getActualInstance()).get(_key)))));
++            joiner.add(String.format(java.util.Locale.ROOT, "%s%s%s=%s", prefix, suffix,
++                "".equals(suffix) ? _key : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, _key, containerSuffix),
 +                ((Map<String, Object>)getActualInstance()).get(_key), ApiClient.urlEncode(String.valueOf(((Map<String, Object>)getActualInstance()).get(_key)))));
            }
          }
