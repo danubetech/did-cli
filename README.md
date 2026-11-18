@@ -4,9 +4,11 @@ A command-line interface for any standards-compliant DID Resolver and DID Regist
 
 ## Run using Docker
 
-Download Docker image:
+Clone the repository and download the Docker image:
 
 ```shell
+git clone https://github.com/danubetech/did-cli.git
+cd did-cli
 docker compose pull
 ```
 
@@ -56,6 +58,8 @@ did-cli config endpoint -r http://localhost:8080/1.0/
 # Set API endpoint to local Universal Registrar
 did-cli config endpoint -r http://localhost:9080/1.0/
 ```
+
+The DID-CLI has one endpoint setting. It is used for resolver and registrar commands, so the second command replaces the first.
 
 ## Simple examples
 
@@ -131,7 +135,7 @@ did-cli create -m web -rvmi '#key-1' -rvmt 'Ed25519VerificationKey2020' -rvmp '[
 ```
 
 ```shell
-# Update a DID with an additional key
+# Update a DID with an additional key (replace did:example:123 with your DID)
 did-cli update -d did:example:123 --diddocop 'addToDidDocument' -rvmi '#key-3' -rvmt 'Ed25519VerificationKey2020' -rvmp '["authentication", "assertionMethod"]'
 ```
 
